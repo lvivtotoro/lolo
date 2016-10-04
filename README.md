@@ -29,6 +29,7 @@ Running Lolo programs:
     loLolo  - duplicate value
     lolOlo  - swap top values in stack
     loloLo  - push 10
+By ending your program with a `l`, you print the stack at the end.
 ## lolo codepage
 
 - 00 = l
