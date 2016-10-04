@@ -1,2 +1,4 @@
 # lolo
-documentation will be added later
+Running Lolo programs:
+
+    java -jar lolo.jar (LOLO_FILE_LOCATION)
