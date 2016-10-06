@@ -29,6 +29,12 @@ Running Lolo programs:
     loLolo  - duplicate value
     lolOlo  - swap top values in stack
     loloLo  - push 10
+    lololO  - pop value, put in var with a key of another popped value (not tested)
+    LOlolo  - push value, from a variable with a key of a popped value (not tested)
+    lOLolo  - create a code block
+    loLOlo  - close a code block
+    lolOLo  - run a code block
+    lolOLo  - repeat a code block
 By ending your program with a `l`, you print the stack at the end.
 ## lolo codepage
 
