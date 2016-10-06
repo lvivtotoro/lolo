@@ -293,4 +293,76 @@ public interface LOLListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitNumberTen(LOLParser.NumberTenContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code popToVar}
+	 * labeled alternative in {@link LOLParser#lo}.
+	 * @param ctx the parse tree
+	 */
+	void enterPopToVar(LOLParser.PopToVarContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code popToVar}
+	 * labeled alternative in {@link LOLParser#lo}.
+	 * @param ctx the parse tree
+	 */
+	void exitPopToVar(LOLParser.PopToVarContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code pushFromVar}
+	 * labeled alternative in {@link LOLParser#lo}.
+	 * @param ctx the parse tree
+	 */
+	void enterPushFromVar(LOLParser.PushFromVarContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code pushFromVar}
+	 * labeled alternative in {@link LOLParser#lo}.
+	 * @param ctx the parse tree
+	 */
+	void exitPushFromVar(LOLParser.PushFromVarContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code newCodeBlock}
+	 * labeled alternative in {@link LOLParser#lo}.
+	 * @param ctx the parse tree
+	 */
+	void enterNewCodeBlock(LOLParser.NewCodeBlockContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code newCodeBlock}
+	 * labeled alternative in {@link LOLParser#lo}.
+	 * @param ctx the parse tree
+	 */
+	void exitNewCodeBlock(LOLParser.NewCodeBlockContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code closeCodeBlock}
+	 * labeled alternative in {@link LOLParser#lo}.
+	 * @param ctx the parse tree
+	 */
+	void enterCloseCodeBlock(LOLParser.CloseCodeBlockContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code closeCodeBlock}
+	 * labeled alternative in {@link LOLParser#lo}.
+	 * @param ctx the parse tree
+	 */
+	void exitCloseCodeBlock(LOLParser.CloseCodeBlockContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code runCodeBlock}
+	 * labeled alternative in {@link LOLParser#lo}.
+	 * @param ctx the parse tree
+	 */
+	void enterRunCodeBlock(LOLParser.RunCodeBlockContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code runCodeBlock}
+	 * labeled alternative in {@link LOLParser#lo}.
+	 * @param ctx the parse tree
+	 */
+	void exitRunCodeBlock(LOLParser.RunCodeBlockContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code repeatCodeBlock}
+	 * labeled alternative in {@link LOLParser#lo}.
+	 * @param ctx the parse tree
+	 */
+	void enterRepeatCodeBlock(LOLParser.RepeatCodeBlockContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code repeatCodeBlock}
+	 * labeled alternative in {@link LOLParser#lo}.
+	 * @param ctx the parse tree
+	 */
+	void exitRepeatCodeBlock(LOLParser.RepeatCodeBlockContext ctx);
 }

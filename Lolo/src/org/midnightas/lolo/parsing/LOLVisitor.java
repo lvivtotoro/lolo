@@ -177,4 +177,46 @@ public interface LOLVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitNumberTen(LOLParser.NumberTenContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code popToVar}
+	 * labeled alternative in {@link LOLParser#lo}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPopToVar(LOLParser.PopToVarContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code pushFromVar}
+	 * labeled alternative in {@link LOLParser#lo}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPushFromVar(LOLParser.PushFromVarContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code newCodeBlock}
+	 * labeled alternative in {@link LOLParser#lo}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNewCodeBlock(LOLParser.NewCodeBlockContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code closeCodeBlock}
+	 * labeled alternative in {@link LOLParser#lo}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCloseCodeBlock(LOLParser.CloseCodeBlockContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code runCodeBlock}
+	 * labeled alternative in {@link LOLParser#lo}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRunCodeBlock(LOLParser.RunCodeBlockContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code repeatCodeBlock}
+	 * labeled alternative in {@link LOLParser#lo}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRepeatCodeBlock(LOLParser.RepeatCodeBlockContext ctx);
 }

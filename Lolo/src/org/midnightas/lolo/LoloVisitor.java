@@ -2,10 +2,12 @@ package org.midnightas.lolo;
 
 import org.midnightas.lolo.parsing.LOLBaseVisitor;
 import org.midnightas.lolo.parsing.LOLParser.AddContext;
+import org.midnightas.lolo.parsing.LOLParser.CloseCodeBlockContext;
 import org.midnightas.lolo.parsing.LOLParser.DivContext;
 import org.midnightas.lolo.parsing.LOLParser.DuplicateContext;
 import org.midnightas.lolo.parsing.LOLParser.LowercaseEndContext;
 import org.midnightas.lolo.parsing.LOLParser.MulContext;
+import org.midnightas.lolo.parsing.LOLParser.NewCodeBlockContext;
 import org.midnightas.lolo.parsing.LOLParser.NumberEightContext;
 import org.midnightas.lolo.parsing.LOLParser.NumberFiveContext;
 import org.midnightas.lolo.parsing.LOLParser.NumberFourContext;
@@ -17,8 +19,12 @@ import org.midnightas.lolo.parsing.LOLParser.NumberTenContext;
 import org.midnightas.lolo.parsing.LOLParser.NumberThreeContext;
 import org.midnightas.lolo.parsing.LOLParser.NumberTwoContext;
 import org.midnightas.lolo.parsing.LOLParser.PopContext;
+import org.midnightas.lolo.parsing.LOLParser.PopToVarContext;
 import org.midnightas.lolo.parsing.LOLParser.PrintContext;
 import org.midnightas.lolo.parsing.LOLParser.ProgramContext;
+import org.midnightas.lolo.parsing.LOLParser.PushFromVarContext;
+import org.midnightas.lolo.parsing.LOLParser.RepeatCodeBlockContext;
+import org.midnightas.lolo.parsing.LOLParser.RunCodeBlockContext;
 import org.midnightas.lolo.parsing.LOLParser.SubContext;
 import org.midnightas.lolo.parsing.LOLParser.SwapContext;
 import org.midnightas.lolo.parsing.LOLParser.ToCharContext;
@@ -34,7 +40,16 @@ public class LoloVisitor extends LOLBaseVisitor<Void> {
 	}
 
 	public Void visitProgram(ProgramContext ctx) {
-		ctx.lo().forEach(lo -> visit(lo));
+		ctx.lo().forEach(lo -> {
+			if (lolo.codeBlocks.size() == 0)
+				visit(lo);
+			else {
+				if (lo.getClass().equals(CloseCodeBlockContext.class))
+					lolo.stack.push(lolo.codeBlocks.remove(lolo.codeBlocks.size() - 1));
+				else
+					lolo.codeBlocks.get(lolo.codeBlocks.size() - 1).contexts.add(lo);
+			}
+		});
 		if (ctx.endingL() != null)
 			visit(ctx.endingL());
 		return null;
@@ -146,7 +161,7 @@ public class LoloVisitor extends LOLBaseVisitor<Void> {
 		}
 		return null;
 	}
-	
+
 	public Void visitDuplicate(DuplicateContext ctx) {
 		lolo.stack.push(lolo.stack.peek());
 		return null;
@@ -156,10 +171,40 @@ public class LoloVisitor extends LOLBaseVisitor<Void> {
 		lolo.stack.push(lolo.stack.pop(Object.class, 1));
 		return null;
 	}
-	
+
 	public Void visitNumberTen(NumberTenContext ctx) {
 		lolo.stack.push(10d);
 		return null;
 	}
-	
+
+	public Void visitPopToVar(PopToVarContext ctx) {
+		lolo.vars.put(lolo.stack.pop(Double.class), lolo.stack.pop(Object.class));
+		return null;
+	}
+
+	public Void visitPushFromVar(PushFromVarContext ctx) {
+		lolo.stack.push(lolo.vars.get(lolo.stack.pop(Double.class)));
+		return null;
+	}
+
+	public Void visitNewCodeBlock(NewCodeBlockContext ctx) {
+		lolo.codeBlocks.add(new CodeBlock());
+		return null;
+	}
+
+	// visitCloseCodeBlock not implemented as it is used in visitProgram
+
+	public Void visitRunCodeBlock(RunCodeBlockContext ctx) {
+		CodeBlock cb = lolo.stack.pop(CodeBlock.class);
+		cb.contexts.forEach(lo -> visit(lo));
+		return null;
+	}
+
+	public Void visitRepeatCodeBlock(RepeatCodeBlockContext ctx) {
+		CodeBlock cb = lolo.stack.pop(CodeBlock.class);
+		while (cb.getClass() == cb.getClass()) // not cb == cb to remove warning
+			cb.contexts.forEach(lo -> visit(lo));
+		return null;
+	}
+
 }

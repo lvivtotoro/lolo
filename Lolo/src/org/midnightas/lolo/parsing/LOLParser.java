@@ -19,7 +19,8 @@ public class LOLParser extends Parser {
 	public static final int
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
 		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, T__16=17, 
-		T__17=18, T__18=19, T__19=20, T__20=21, T__21=22, T__22=23, WHITESPACE=24;
+		T__17=18, T__18=19, T__19=20, T__20=21, T__21=22, T__22=23, T__23=24, 
+		T__24=25, T__25=26, T__26=27, T__27=28, T__28=29, WHITESPACE=30;
 	public static final int
 		RULE_program = 0, RULE_endingL = 1, RULE_lo = 2;
 	public static final String[] ruleNames = {
@@ -30,12 +31,13 @@ public class LOLParser extends Parser {
 		null, "'l'", "'L'", "'Lo'", "'LO'", "'lO'", "'lo'", "'lolo'", "'Lolo'", 
 		"'lOlo'", "'loLo'", "'lolO'", "'LOlo'", "'lOLo'", "'loLO'", "'LOLo'", 
 		"'lOLO'", "'LOLO'", "'lololo'", "'Lololo'", "'lOlolo'", "'loLolo'", "'lolOlo'", 
-		"'loloLo'"
+		"'loloLo'", "'lololO'", "'LOlolo'", "'lOLolo'", "'loLOlo'", "'lolOLo'", 
+		"'loloLO'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, null, null, null, null, null, null, null, null, null, null, null, 
 		null, null, null, null, null, null, null, null, null, null, null, null, 
-		"WHITESPACE"
+		null, null, null, null, null, null, "WHITESPACE"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -125,7 +127,7 @@ public class LOLParser extends Parser {
 			setState(9);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << T__3) | (1L << T__4) | (1L << T__5) | (1L << T__6) | (1L << T__7) | (1L << T__8) | (1L << T__9) | (1L << T__10) | (1L << T__11) | (1L << T__12) | (1L << T__13) | (1L << T__14) | (1L << T__15) | (1L << T__16) | (1L << T__17) | (1L << T__18) | (1L << T__19) | (1L << T__20) | (1L << T__21) | (1L << T__22))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << T__3) | (1L << T__4) | (1L << T__5) | (1L << T__6) | (1L << T__7) | (1L << T__8) | (1L << T__9) | (1L << T__10) | (1L << T__11) | (1L << T__12) | (1L << T__13) | (1L << T__14) | (1L << T__15) | (1L << T__16) | (1L << T__17) | (1L << T__18) | (1L << T__19) | (1L << T__20) | (1L << T__21) | (1L << T__22) | (1L << T__23) | (1L << T__24) | (1L << T__25) | (1L << T__26) | (1L << T__27) | (1L << T__28))) != 0)) {
 				{
 				{
 				setState(6);
@@ -250,22 +252,6 @@ public class LOLParser extends Parser {
 			super.copyFrom(ctx);
 		}
 	}
-	public static class AddContext extends LoContext {
-		public AddContext(LoContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LOLListener ) ((LOLListener)listener).enterAdd(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LOLListener ) ((LOLListener)listener).exitAdd(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LOLVisitor ) return ((LOLVisitor<? extends T>)visitor).visitAdd(this);
-			else return visitor.visitChildren(this);
-		}
-	}
 	public static class SubContext extends LoContext {
 		public SubContext(LoContext ctx) { copyFrom(ctx); }
 		@Override
@@ -295,6 +281,22 @@ public class LOLParser extends Parser {
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof LOLVisitor ) return ((LOLVisitor<? extends T>)visitor).visitNumberEight(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class PushFromVarContext extends LoContext {
+		public PushFromVarContext(LoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LOLListener ) ((LOLListener)listener).enterPushFromVar(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LOLListener ) ((LOLListener)listener).exitPushFromVar(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof LOLVisitor ) return ((LOLVisitor<? extends T>)visitor).visitPushFromVar(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -346,22 +348,6 @@ public class LOLParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
-	public static class SwapContext extends LoContext {
-		public SwapContext(LoContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LOLListener ) ((LOLListener)listener).enterSwap(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LOLListener ) ((LOLListener)listener).exitSwap(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LOLVisitor ) return ((LOLVisitor<? extends T>)visitor).visitSwap(this);
-			else return visitor.visitChildren(this);
-		}
-	}
 	public static class NumberNineContext extends LoContext {
 		public NumberNineContext(LoContext ctx) { copyFrom(ctx); }
 		@Override
@@ -394,19 +380,19 @@ public class LOLParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
-	public static class DuplicateContext extends LoContext {
-		public DuplicateContext(LoContext ctx) { copyFrom(ctx); }
+	public static class RunCodeBlockContext extends LoContext {
+		public RunCodeBlockContext(LoContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LOLListener ) ((LOLListener)listener).enterDuplicate(this);
+			if ( listener instanceof LOLListener ) ((LOLListener)listener).enterRunCodeBlock(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LOLListener ) ((LOLListener)listener).exitDuplicate(this);
+			if ( listener instanceof LOLListener ) ((LOLListener)listener).exitRunCodeBlock(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LOLVisitor ) return ((LOLVisitor<? extends T>)visitor).visitDuplicate(this);
+			if ( visitor instanceof LOLVisitor ) return ((LOLVisitor<? extends T>)visitor).visitRunCodeBlock(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -490,19 +476,19 @@ public class LOLParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
-	public static class PrintContext extends LoContext {
-		public PrintContext(LoContext ctx) { copyFrom(ctx); }
+	public static class PopToVarContext extends LoContext {
+		public PopToVarContext(LoContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LOLListener ) ((LOLListener)listener).enterPrint(this);
+			if ( listener instanceof LOLListener ) ((LOLListener)listener).enterPopToVar(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LOLListener ) ((LOLListener)listener).exitPrint(this);
+			if ( listener instanceof LOLListener ) ((LOLListener)listener).exitPopToVar(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LOLVisitor ) return ((LOLVisitor<? extends T>)visitor).visitPrint(this);
+			if ( visitor instanceof LOLVisitor ) return ((LOLVisitor<? extends T>)visitor).visitPopToVar(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -538,6 +524,118 @@ public class LOLParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
+	public static class ToCharContext extends LoContext {
+		public ToCharContext(LoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LOLListener ) ((LOLListener)listener).enterToChar(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LOLListener ) ((LOLListener)listener).exitToChar(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof LOLVisitor ) return ((LOLVisitor<? extends T>)visitor).visitToChar(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class AddContext extends LoContext {
+		public AddContext(LoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LOLListener ) ((LOLListener)listener).enterAdd(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LOLListener ) ((LOLListener)listener).exitAdd(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof LOLVisitor ) return ((LOLVisitor<? extends T>)visitor).visitAdd(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class SwapContext extends LoContext {
+		public SwapContext(LoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LOLListener ) ((LOLListener)listener).enterSwap(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LOLListener ) ((LOLListener)listener).exitSwap(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof LOLVisitor ) return ((LOLVisitor<? extends T>)visitor).visitSwap(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class DuplicateContext extends LoContext {
+		public DuplicateContext(LoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LOLListener ) ((LOLListener)listener).enterDuplicate(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LOLListener ) ((LOLListener)listener).exitDuplicate(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof LOLVisitor ) return ((LOLVisitor<? extends T>)visitor).visitDuplicate(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class PrintContext extends LoContext {
+		public PrintContext(LoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LOLListener ) ((LOLListener)listener).enterPrint(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LOLListener ) ((LOLListener)listener).exitPrint(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof LOLVisitor ) return ((LOLVisitor<? extends T>)visitor).visitPrint(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class RepeatCodeBlockContext extends LoContext {
+		public RepeatCodeBlockContext(LoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LOLListener ) ((LOLListener)listener).enterRepeatCodeBlock(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LOLListener ) ((LOLListener)listener).exitRepeatCodeBlock(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof LOLVisitor ) return ((LOLVisitor<? extends T>)visitor).visitRepeatCodeBlock(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class CloseCodeBlockContext extends LoContext {
+		public CloseCodeBlockContext(LoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LOLListener ) ((LOLListener)listener).enterCloseCodeBlock(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LOLListener ) ((LOLListener)listener).exitCloseCodeBlock(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof LOLVisitor ) return ((LOLVisitor<? extends T>)visitor).visitCloseCodeBlock(this);
+			else return visitor.visitChildren(this);
+		}
+	}
 	public static class ToStringContext extends LoContext {
 		public ToStringContext(LoContext ctx) { copyFrom(ctx); }
 		@Override
@@ -551,6 +649,22 @@ public class LOLParser extends Parser {
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof LOLVisitor ) return ((LOLVisitor<? extends T>)visitor).visitToString(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class NewCodeBlockContext extends LoContext {
+		public NewCodeBlockContext(LoContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LOLListener ) ((LOLListener)listener).enterNewCodeBlock(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LOLListener ) ((LOLListener)listener).exitNewCodeBlock(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof LOLVisitor ) return ((LOLVisitor<? extends T>)visitor).visitNewCodeBlock(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -570,28 +684,12 @@ public class LOLParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
-	public static class ToCharContext extends LoContext {
-		public ToCharContext(LoContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LOLListener ) ((LOLListener)listener).enterToChar(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LOLListener ) ((LOLListener)listener).exitToChar(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LOLVisitor ) return ((LOLVisitor<? extends T>)visitor).visitToChar(this);
-			else return visitor.visitChildren(this);
-		}
-	}
 
 	public final LoContext lo() throws RecognitionException {
 		LoContext _localctx = new LoContext(_ctx, getState());
 		enterRule(_localctx, 4, RULE_lo);
 		try {
-			setState(40);
+			setState(46);
 			switch (_input.LA(1)) {
 			case T__2:
 				_localctx = new PrintContext(_localctx);
@@ -761,6 +859,54 @@ public class LOLParser extends Parser {
 				match(T__22);
 				}
 				break;
+			case T__23:
+				_localctx = new PopToVarContext(_localctx);
+				enterOuterAlt(_localctx, 22);
+				{
+				setState(40);
+				match(T__23);
+				}
+				break;
+			case T__24:
+				_localctx = new PushFromVarContext(_localctx);
+				enterOuterAlt(_localctx, 23);
+				{
+				setState(41);
+				match(T__24);
+				}
+				break;
+			case T__25:
+				_localctx = new NewCodeBlockContext(_localctx);
+				enterOuterAlt(_localctx, 24);
+				{
+				setState(42);
+				match(T__25);
+				}
+				break;
+			case T__26:
+				_localctx = new CloseCodeBlockContext(_localctx);
+				enterOuterAlt(_localctx, 25);
+				{
+				setState(43);
+				match(T__26);
+				}
+				break;
+			case T__27:
+				_localctx = new RunCodeBlockContext(_localctx);
+				enterOuterAlt(_localctx, 26);
+				{
+				setState(44);
+				match(T__27);
+				}
+				break;
+			case T__28:
+				_localctx = new RepeatCodeBlockContext(_localctx);
+				enterOuterAlt(_localctx, 27);
+				{
+				setState(45);
+				match(T__28);
+				}
+				break;
 			default:
 				throw new NoViableAltException(this);
 			}
@@ -777,21 +923,25 @@ public class LOLParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\32-\4\2\t\2\4\3\t"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3 \63\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\3\2\7\2\n\n\2\f\2\16\2\r\13\2\3\2\5\2\20\n\2\3\3\3\3\5\3\24"+
 		"\n\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3"+
-		"\4\3\4\3\4\3\4\3\4\5\4+\n\4\3\4\2\2\5\2\4\6\2\2@\2\13\3\2\2\2\4\23\3\2"+
-		"\2\2\6*\3\2\2\2\b\n\5\6\4\2\t\b\3\2\2\2\n\r\3\2\2\2\13\t\3\2\2\2\13\f"+
-		"\3\2\2\2\f\17\3\2\2\2\r\13\3\2\2\2\16\20\5\4\3\2\17\16\3\2\2\2\17\20\3"+
-		"\2\2\2\20\3\3\2\2\2\21\24\7\3\2\2\22\24\7\4\2\2\23\21\3\2\2\2\23\22\3"+
-		"\2\2\2\24\5\3\2\2\2\25+\7\5\2\2\26+\7\6\2\2\27+\7\7\2\2\30+\7\b\2\2\31"+
-		"+\7\t\2\2\32+\7\n\2\2\33+\7\13\2\2\34+\7\f\2\2\35+\7\r\2\2\36+\7\16\2"+
-		"\2\37+\7\17\2\2 +\7\20\2\2!+\7\21\2\2\"+\7\22\2\2#+\7\23\2\2$+\7\24\2"+
-		"\2%+\7\25\2\2&+\7\26\2\2\'+\7\27\2\2(+\7\30\2\2)+\7\31\2\2*\25\3\2\2\2"+
-		"*\26\3\2\2\2*\27\3\2\2\2*\30\3\2\2\2*\31\3\2\2\2*\32\3\2\2\2*\33\3\2\2"+
-		"\2*\34\3\2\2\2*\35\3\2\2\2*\36\3\2\2\2*\37\3\2\2\2* \3\2\2\2*!\3\2\2\2"+
-		"*\"\3\2\2\2*#\3\2\2\2*$\3\2\2\2*%\3\2\2\2*&\3\2\2\2*\'\3\2\2\2*(\3\2\2"+
-		"\2*)\3\2\2\2+\7\3\2\2\2\6\13\17\23*";
+		"\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\5\4\61\n\4\3\4\2\2\5\2\4\6"+
+		"\2\2L\2\13\3\2\2\2\4\23\3\2\2\2\6\60\3\2\2\2\b\n\5\6\4\2\t\b\3\2\2\2\n"+
+		"\r\3\2\2\2\13\t\3\2\2\2\13\f\3\2\2\2\f\17\3\2\2\2\r\13\3\2\2\2\16\20\5"+
+		"\4\3\2\17\16\3\2\2\2\17\20\3\2\2\2\20\3\3\2\2\2\21\24\7\3\2\2\22\24\7"+
+		"\4\2\2\23\21\3\2\2\2\23\22\3\2\2\2\24\5\3\2\2\2\25\61\7\5\2\2\26\61\7"+
+		"\6\2\2\27\61\7\7\2\2\30\61\7\b\2\2\31\61\7\t\2\2\32\61\7\n\2\2\33\61\7"+
+		"\13\2\2\34\61\7\f\2\2\35\61\7\r\2\2\36\61\7\16\2\2\37\61\7\17\2\2 \61"+
+		"\7\20\2\2!\61\7\21\2\2\"\61\7\22\2\2#\61\7\23\2\2$\61\7\24\2\2%\61\7\25"+
+		"\2\2&\61\7\26\2\2\'\61\7\27\2\2(\61\7\30\2\2)\61\7\31\2\2*\61\7\32\2\2"+
+		"+\61\7\33\2\2,\61\7\34\2\2-\61\7\35\2\2.\61\7\36\2\2/\61\7\37\2\2\60\25"+
+		"\3\2\2\2\60\26\3\2\2\2\60\27\3\2\2\2\60\30\3\2\2\2\60\31\3\2\2\2\60\32"+
+		"\3\2\2\2\60\33\3\2\2\2\60\34\3\2\2\2\60\35\3\2\2\2\60\36\3\2\2\2\60\37"+
+		"\3\2\2\2\60 \3\2\2\2\60!\3\2\2\2\60\"\3\2\2\2\60#\3\2\2\2\60$\3\2\2\2"+
+		"\60%\3\2\2\2\60&\3\2\2\2\60\'\3\2\2\2\60(\3\2\2\2\60)\3\2\2\2\60*\3\2"+
+		"\2\2\60+\3\2\2\2\60,\3\2\2\2\60-\3\2\2\2\60.\3\2\2\2\60/\3\2\2\2\61\7"+
+		"\3\2\2\2\6\13\17\23\60";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

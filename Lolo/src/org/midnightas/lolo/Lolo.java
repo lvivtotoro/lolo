@@ -2,7 +2,9 @@ package org.midnightas.lolo;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.antlr.v4.runtime.ANTLRInputStream;
@@ -20,9 +22,10 @@ public class Lolo {
 		new Lolo().interpret(FileUtils.readFileToString(new File(args[0])));
 	}
 	
-	public Map<String, Object> vars = new HashMap<String, Object>();
+	public Map<Double, Object> vars = new HashMap<Double, Object>();
 	public LoloVisitor visitor;
 	public Stack stack;
+	public List<CodeBlock> codeBlocks = new ArrayList<CodeBlock>();
 	
 	public Lolo() {
 		stack = new Stack();
